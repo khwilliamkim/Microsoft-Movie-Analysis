@@ -55,7 +55,7 @@ Descriptive statistics and data visualizations were used to isolate the relevant
 Recommendation #1: We discovered that the highest grossed movies are not equal to the movies with the most profits. Meaning that pouring money into a movie does not guarantee a success in the box office. Instead, the top 25 most profitable movies were investigated, and found that the mean production budget is $182,756,000.00 and is the recommended production budget for a successful movie
 
 ### Visual 1
-![fig1](./Microsoft-Movie-Analysis/images/fig1_Budget_Gross_Var.png)
+![fig1](./images/fig1_Budget_Gross_Var.png)
 
 ##### Question #2: Which movie studios are some of the biggest competitors?
 
@@ -78,7 +78,7 @@ The top 5 studios that made the most profits are
 ***
 
 ### Visual 2
-![fig4](./Microsoft-Movie-Analysis/images/fig4_CountGenre.png)
+![fig4](./images/fig4_CountGenre.png)
 
 ##### Question #3: Which movie genres are the most popular in the movie industry
 
@@ -92,7 +92,7 @@ Recommendation #4: The top 10 directors that made the most profitable movies are
 Here is an example of how to embed images from your sub-folder:
 
 ### Visual 3
-![fig6](./Microsoft-Movie-Analysis/images/fig6_NetDirector.png)
+![fig6](./images/fig6_NetDirector.png)
 
 ## Conclusions
 

@@ -1,72 +1,125 @@
-# Phase 1 Project Template - Minimum Viable Product (MVP)
+# Microsoft Movie Analysis
 
-![blueprint](images/blueprint.png)
+**Authors**: Kyunghwan William Kim 
 
-This repository is like a blueprint, providing structure for your first End of Phase Project. We suggest you base your Phase 1 project off of this repository so you can focus less on formatting and organization, and more on the _analysis and communication skills_ that will support your progress through the course. This template is designed to make your project portfolio-ready in order to impress the future employers who will review it. 
+## Overview
 
-## Repository Contents
+Microsoft announced that they will create a new movie studio and have requested the analysis of the current film industry. The main objective is to investigate the movie industry to gain sufficient understanding of what attributes to success and in turn utilize this analysis to create actionable recommendations.
 
-Below is a list of the contents of this repository - instructions for using them are in the next section.
+## Business Problem
 
-- `README.md`: The README for this repo branch explaining it's contents - you're reading it now
-- `TEMPLATE_README.md`: An example of a project README that provides a brief overview of your whole project
-- `dsc-phase1-project-template.ipynb`: A starter Jupyter Notebook with headings, code examples and guiding questions
-- `DS_Project_Presentation_Template.pdf`: A starter slide deck presenting your project - here is an [editable version](https://docs.google.com/presentation/d/1PaiH1bleXnhiPjTPsAXQSiAK0nkaRlseQIr_Yb-0mz0/copy)
-- `data` folder: A folder for the data you reference with your code
-- `images` folder: A folder for the images you reference in your files 
-- `.gitignore`: A hidden file that tells git to not track certain files and folders
-
-## Instructions For Using This Repository
-
-### Fork This Repository
-
-**For a group project**, have only one team member do these steps:
-
-1. Fork this repository to your personal account
-   - In GitHub, go to this repository and click the "Fork" button in the upper right
-   
-2. Change the name of your fork of this repo to a _descriptive_ name of your choosing
-   - In GitHub, go to your fork of this repo -> "Settings" -> "Options" -> "Repository Name" -> "Rename"
-   - Make the name descriptive, since potential employers will read it. Ex: "Microsoft-Movie-Analysis" is better than "Project-1"
-
-3. Use `git clone` to clone your fork of this repo to your local computer
-
-4. **For a group project**, add team members as collaborators to your fork of this repo
-   - In GitHub, go to your fork of this repo -> "Settings" -> "Manage Access" -> "Invite Teams or People"
-   - Add your project team members as collaborators & send them the repo GitHub URL
-
-### Work In Your Fork Of This Repository
-
-- Work in the repo clone that you created on your local machine
-- Start writing and coding in the Jupyter Notebook `dsc-phase1-project-template.ipynb`
-- Fill in the README template in `TEMPLATE_README.md`
-- Use `git add`, `git commit`, and `git push` often to update your repo in GitHub
-   - For a refresher on how to do this and why it's important, review Topic 2: Bash and Git
-
-### Use The Slide Template
-
-1. Go to [this link](https://docs.google.com/presentation/d/1PaiH1bleXnhiPjTPsAXQSiAK0nkaRlseQIr_Yb-0mz0/copy) to make an editable copy of the slide deck in your own Google Drive account
-2. Go to "Slide," select "Change Theme," and pick a theme you like so your presentation doesn't look like everyone else's
-3. **For a group project**, click the "Share" button and add your teammates as editors
-
-### Tidy Up Your Project
-
-- Change the file name of the Jupyter Notebook (`dsc-phase1-project-template.ipynb`) to something more descriptive
-- Save an appropriately-named PDF version of your slide deck to the repository
-- Rename the template readme you've been working in by running `git mv TEMPLATE_README.md README.md`
-- Delete unnecessary files from the repo using `git rm`
-   - The presentation PDF: `DS_Project_Presentation_Template.pdf`
-   - This README file: `README.md`
-   - Any unused data files in the `data` folder
-   - Any unused images in the `images` folder
-
-### Submit Your Project
-
-To submit your project, please follow the instructions in the "Project Submission & Review" page in the Milestones course.
+Microsoft has announced that they will create a new movie studio however, they have no prior knowledge of the movie industry, and they need help so that their movie studio can be successful. 
+The goal is to provide Microsoft with a data-driven analysis of the movie industry and determine the factors of a successful movie. 
 
 ***
-### Notes
+The following factors of a successful movie were investigated:
+	1. What are the most profitable movies and how are the production budgets related?
+	2. Which movie studios are some of the biggest competitors?
+	3. Which movie genres are the most popular in the movie industry
+	4. Which directors tend to add the most value?
+***
 
-- The visualizations in the notebook use best practices for visualization that you should try to emulate. For example, they have clear axes, descriptive titles, and appropriate number formatting
-- The `dsc-phase1-project-template.ipynb` is intended to be the _final version_ of your project. The first notebook you create will not look like this. You are encouraged to start with a very disorderly notebook and clean it as you go
+## Data
 
+The data provided was collected from the following sources
+
+***
+•	Box Office Mojo
+•	IMDB
+•	The Numbers
+***
+
+The data found was stored as .csv files and were imported and investigated. 
+
+***
+The .csv files that were imported are the following:
+•	“imdb title crew” : each record represents a director and writer (encoded)
+•	“imdb title ratings” : each record represents a director’s full primary name
+•	“bom movie gross” : each record represents a movie with studio and worldwide gross $
+•	“imdb title basics” : each record represents a movie with genres
+•	“imdb title principals” : required to join data frames together
+•	“tn movie budgets” : each record represents a movie’s production budget and worldwide gross $
+***
+
+## Methods
+
+The data frames were imported from various sources and the data sets were not aligned. In order to join the data sets together each data set was inspected and cleaned. When appropriate rows and columns containing null values were dropped. Irrelevant and duplicate data were removed as well. 
+After the exploratory data analysis, the main factor related to the success of a movie was decided. By subtracting the production budget from the worldwide gross revenue, a new value was created to investigate the net profits. Additionally, the analysis was to find the most profitable movies, thus movies that made $0 in revenue were eliminated. Finally, movies that made over $200B in net profits were removed from the analysis (Titanic & Avatar)
+Descriptive statistics and data visualizations were used to isolate the relevant factors of a successful movie. 
+
+
+## Results
+
+##### Question #1: What are the most profitable movies and how are the production budgets related?
+
+Recommendation #1: We discovered that the highest grossed movies are not equal to the movies with the most profits. Meaning that pouring money into a movie does not guarantee a success in the box office. Instead, the top 25 most profitable movies were investigated, and found that the mean production budget is $182,756,000.00 and is the recommended production budget for a successful movie
+
+### Visual 1
+![fig1](./images/fig1_Budget_Gross_Var.png)
+
+##### Question #2: Which movie studios are some of the biggest competitors?
+
+Recommendation #2: Similarly, the top 5 movie studios that make the most movies are the not the same as the top 5 movie studios that made the most profits. 
+
+***
+The top 5 studios that make the most movies are
+1.	Fox 		(102)
+2.	Universal 	(99)
+3.	Warner Bros 	(89)
+4.	Sony 		(69)
+5.	Paramount 	(66)
+
+The top 5 studios that made the most profits are
+1.	Buena Vista 	($23 Billion)
+2.	Universal 	($21 Billion)
+3.	Fox 		($19 Billion)
+4.	Warner Bros 	($14 Billion)
+5.	Paramount 	($12 Billion)
+***
+
+### Visual 2
+![fig4](./images/fig4_CountGenre.png)
+
+##### Question #3: Which movie genres are the most popular in the movie industry
+
+Recommendation #3: Even though the top 3 movies genres produced are Documentary, Drama, and Comedy. When profit and gross revenue is calculated, the top 3 movie genres changes significantly.  The top 3 movie genres that produce the most revenues are Action, Adventure, and Comedy. Here the movie genre Action is on top and the worldwide gross $ is double the amount of Adventure which comes in second.
+
+##### Question #4: Which directors tend to add the most value? 
+
+Recommendation #4: The top 10 directors that made the most profitable movies are listed. We recommend hiring a director from the list below. 
+
+
+Here is an example of how to embed images from your sub-folder:
+
+### Visual 3
+![fig6](./images/fig6_NetDirector.png)
+
+## Conclusions
+
+While there are many other factors that contribute to the success of a movie, based on this analysis the following recommendations will result in a successful business venture for Microsoft’s new movie studio.
+
+1.	Recommend that Microsoft should budget the production around $182,000,000.00
+2.	Buena Vista and Universal have been dominating the box office recently. Recommend to consider these studios as competitors and analyze their work to find out what is a competitive advantage Microsoft can have.
+3.	Recommend that Microsoft focus on the top 3 profitable movie genres which are Action, Adventure and Comedy.
+4.	Recommend that Microsoft hires Jack Kirby or one of the top 10 profitable directors. 
+
+Further Analysis – For future analysis, I would like to investigate the relationship of highly rated movies and the net profit revenuess
+
+
+## For More Information
+
+Please review our full analysis in [our Jupyter Notebook](./dsc-phase1-project-template.ipynb) or our [presentation](./DS_Project_Presentation.pdf).
+
+For any additional questions, please contact **Kyunghwan William Kim / khwilliamkim@outlook.com**
+
+## Repository Structure
+
+Describe the structure of your repository and its contents, for example:
+
+```
+├── README.md                           <- The top-level README for reviewers of this project
+├── Microsoft-Movie-Analysis.ipynb   <- Narrative documentation of analysis in Jupyter notebook
+├── DS_Project_Presentation.pdf         <- PDF version of project presentation
+├── data                                <- Both sourced externally and generated from code
+└── images                              <- Both sourced externally and generated from code
+```
